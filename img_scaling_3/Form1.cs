@@ -88,8 +88,6 @@ namespace img_scaling_3
         {
             if (_useWidth != 3 && _dimension != -1 && _dimension != 0)
             {
-                double bitmapWidth = _bitmap.Width;
-                double bitmapHeight = _bitmap.Height;
 
                 double newWidth;
                 double newHeight;
@@ -97,7 +95,6 @@ namespace img_scaling_3
                 if (OriginalFile.isWide)
                 {
                     //image is wider than taller
-                    newWidth = MaxDim;
                     if (_useWidth == 2)
                     {
                         //use height setting
