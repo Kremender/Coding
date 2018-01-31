@@ -95,25 +95,16 @@ namespace img_scaling_3
                 if (nmr_width.Value > MaxDim || nmr_height.Value > MaxDim)
                 {
 
-                    //if (_useWidth == 2)
-                    //{
-                    //    bitmapHeight = _dimension * OriginalFile.ratio;
-                    //    bitmapWidth = _dimension;
-                    //    nmr_height.Value = (int)bitmapHeight;
-                    //}
-                    //else
-                    //{
-                    //    bitmapHeight = _dimension;
-                    //    bitmapWidth = _dimension * OriginalFile.ratio;
-                    //    nmr_width.Value = (int)bitmapWidth;
-                    //}
-
-                    //Math.Round(bitmapHeight, 1);
-                    //Math.Round(bitmapWidth, 1);
-
                     MessageBox.Show("Max dimension exceeded;" + Environment.NewLine + "Setting maximum possible dimension...", "Error", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-                    size = GetMaxSize(OriginalFile.ratio);
 
+                    if (_useWidth == 1)
+                    {
+                        size = GetMaxSize(OriginalFile.ratioHW);
+                    }
+                    else
+                    {
+                        size = GetMaxSize(OriginalFile.ratioWH);
+                    }
                 }
                 else
                 {
@@ -122,22 +113,19 @@ namespace img_scaling_3
                     if (_useWidth == 1)
                     {
                         newWidth = (double)nmr_width.Value;
-                        newHeight = ((newWidth * OriginalFile.ratio) < 1) ? 1 : newWidth * OriginalFile.ratio;
+                        newHeight = ((newWidth * OriginalFile.ratioHW) < 1) ? 1 : newWidth * OriginalFile.ratioHW;
 
                     }
                     else
                     {
                         newHeight = (double)nmr_height.Value;
-                        newWidth = ((newHeight * OriginalFile.ratio) < 1) ? 1 : newHeight * OriginalFile.ratio; 
+                        newWidth = ((newHeight * OriginalFile.ratioWH) < 1) ? 1 : newHeight * OriginalFile.ratioWH; 
                     }
 
-                //bitmapHeight *= OriginalFile.ratio;
-                //bitmapWidth *= OriginalFile.ratio;
+                    size = new Size((int)newWidth, (int)newHeight);
 
-                size = new Size((int)newWidth, (int)newHeight);
                 }
 
-                //new Size((int)bitmapWidth, (int)bitmapHeight);
                 return new Bitmap(_bitmap, size);
 
             }
