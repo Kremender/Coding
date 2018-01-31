@@ -140,7 +140,7 @@
             0});
             this.nmr_height.Location = new System.Drawing.Point(485, 13);
             this.nmr_height.Maximum = new decimal(new int[] {
-            20000,
+            11000,
             0,
             0,
             0});
@@ -157,7 +157,7 @@
             0});
             this.nmr_width.Location = new System.Drawing.Point(485, 37);
             this.nmr_width.Maximum = new decimal(new int[] {
-            20000,
+            11000,
             0,
             0,
             0});

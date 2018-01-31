@@ -10,17 +10,39 @@ namespace img_scaling_3
 {
     public class Picture
     {
-        public Bitmap bitmap { get; set; }
+        public Bitmap Bitmap { get; set; }
         public bool isWide { get; private set; }
+        public double ratio { get; private set; }
 
         public Picture(Bitmap _bitmap)
         {
-            bitmap = _bitmap;
-            SetIsWide();
+            Bitmap = _bitmap;
+            isWide = SetIsWide();
+            ratio = SetRatio();
         }
         private bool SetIsWide()
         {
-            return (bitmap.Width >= bitmap.Height) ? true : false;
+            try
+            {
+                return (Bitmap.Width >= Bitmap.Height) ? true : false;
+            }
+            catch (NullReferenceException)
+            {
+                return false;
+            }
+        }
+
+        private double SetRatio()
+        {
+            try
+            {
+                //return (Bitmap.Width >= Bitmap.Height) ? (double)Bitmap.Height/(double)Bitmap.Width : (double)Bitmap.Width/(double)Bitmap.Height;
+                return (double)Bitmap.Width / (double)Bitmap.Height;
+            }
+            catch (NullReferenceException)
+            {
+                return 0;
+            }  
         }
     }
 }
