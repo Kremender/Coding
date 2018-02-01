@@ -168,6 +168,49 @@ namespace img_scaling_3
             return (Bitmap)pbx_original.Image;        
         }
 
+        //private Size SetDimensions(int _useWidth, double _dimA, double _dimB, double _ratioA, double _ratioB, string _direction)
+        //{
+        //    if (_useWidth == 2)
+        //    {
+        //        if (_dimB * _ratioA > MaxDim)
+        //        {
+        //            _dimA = MaxDim;
+        //            _dimB = _dimA * _ratioB;
+        //        }
+        //        else
+        //        {
+        //            _dimA = ((_dimB * _ratioA) < 1) ? 1 : _dimB * _ratioA;
+        //        }
+        //    }
+        //    else
+        //    {
+        //        if (_dimA > MaxDim)
+        //        {
+        //            _dimA = MaxDim;
+        //        }
+
+        //        _dimB = _dimA * _ratioB;
+        //    }
+
+        //    Size size = new Size();
+        //    switch (_direction)
+        //    {
+        //        case "AB":
+        //            size.Width = (int)_dimA;
+        //            size.Height = (int)_dimB;
+        //            break;
+        //        case "BA":
+        //            size.Width = (int)_dimB;
+        //            size.Height = (int)_dimA;
+        //            break;
+        //        default:
+        //            break;
+        //    }
+
+        //    return size;
+
+        //}
+
         private int GetUsage(bool _show = true)
         {
             decimal nmrHeight = nmr_height.Value;
