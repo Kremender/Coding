@@ -92,8 +92,11 @@ namespace img_scaling_3
                 double newWidth;
                 double newHeight;
 
+                Size size;
+
                 if (OriginalFile.isWide)
                 {
+
                     //image is wider than taller
                     if (_useWidth == 2)
                     {
@@ -106,7 +109,7 @@ namespace img_scaling_3
                             newHeight = newWidth * OriginalFile.ratioHW;
                         }
                         else
-                        { 
+                        {
                             newWidth = ((newHeight * OriginalFile.ratioWH) < 1) ? 1 : newHeight * OriginalFile.ratioWH;
                         }
                     }
@@ -156,11 +159,12 @@ namespace img_scaling_3
                     }
                 }
 
-                Size size = new Size((int)newWidth, (int)newHeight);
+                size = new Size((int)newWidth, (int)newHeight);
 
                 return new Bitmap(_bitmap, size);
 
             }
+
             return (Bitmap)pbx_original.Image;        
         }
 
